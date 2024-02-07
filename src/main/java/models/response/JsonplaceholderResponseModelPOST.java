@@ -5,11 +5,14 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@Data
-@Builder
-@NoArgsConstructor
-@AllArgsConstructor
-public class JsonplaceholderResponseModelPOST {
 
-    JsonplaceholderResponseModelDataPOST data;
-}
+    @Data
+    @Builder
+    @NoArgsConstructor
+    @AllArgsConstructor
+    public class JsonplaceholderResponseModelPOST {
+        String title;
+        String body;
+        int id;
+    }
+

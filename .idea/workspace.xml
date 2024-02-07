@@ -8,15 +8,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2979c769-a3af-4d61-849a-00c75b753945" name="Changes" comment="commit -m &quot;employee service POST request test&quot;">
-      <change afterPath="$PROJECT_DIR$/src/main/java/client/JsonplaceholderClient.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/data/JsonplaceholderDataFactory.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/models/request/JsonplaceholderRequestModelPOST.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/models/response/JsonplaceholderResponseModelDataPOST.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/models/response/JsonplaceholderResponseModelPOST.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/mother/JsonplaceholderMother.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/employee/JsonplaceholderTests.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/client/JsonplaceholderClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client/JsonplaceholderClient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/data/JsonplaceholderDataFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/data/JsonplaceholderDataFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/models/request/JsonplaceholderRequestModelPOST.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/models/request/JsonplaceholderModelPOSTRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/models/response/JsonplaceholderResponseModelDataPOST.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/models/response/JsonplaceholderResponseModelPOST.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/models/response/JsonplaceholderResponseModelPOST.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/mother/JsonplaceholderMother.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/mother/JsonplaceholderMother.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/util/Configuration.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/util/Configuration.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/employee/JsonplaceholderTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/employee/JsonplaceholderTests.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -31,12 +31,23 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="main" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="GitHubPullRequestSearchHistory">{
+  &quot;history&quot;: [
+    {
+      &quot;state&quot;: &quot;OPEN&quot;,
+      &quot;reviewState&quot;: &quot;AWAITING_REVIEW&quot;
+    }
+  ],
   &quot;lastFilter&quot;: {
     &quot;state&quot;: &quot;OPEN&quot;,
-    &quot;assignee&quot;: &quot;Markoski90&quot;
+    &quot;reviewState&quot;: &quot;AWAITING_REVIEW&quot;
   }
 }</component>
   <component name="GithubPullRequestsUISettings">
@@ -57,30 +68,15 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "git-widget-placeholder": "JsonPlaceholderPOSTRequest"
   }
-}</component>
-  <component name="RunManager" selected="JUnit.JsonplaceholderTests.postJsonplaceholderRequestDefaultValues">
-    <configuration name="EmployeeTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="EmployeeService" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="employee.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="employee" />
-      <option name="MAIN_CLASS_NAME" value="employee.EmployeeTests" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+}]]></component>
+  <component name="RunManager" selected="JUnit.JsonplaceholderTests">
     <configuration name="EmployeeTests.postEmployeeRequestDefaultValues" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="EmployeeService" />
       <extension name="coverage">
@@ -97,7 +93,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="JsonplaceholderTests.postEmployeeRequest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="JsonplaceholderTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="EmployeeService" />
       <extension name="coverage">
         <pattern>
@@ -107,13 +103,28 @@
       </extension>
       <option name="PACKAGE_NAME" value="employee" />
       <option name="MAIN_CLASS_NAME" value="employee.JsonplaceholderTests" />
-      <option name="METHOD_NAME" value="postEmployeeRequest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="JsonplaceholderTests.postJsonPlaceholderRequestDefaultValues" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="EmployeeService" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="employee.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="employee" />
+      <option name="MAIN_CLASS_NAME" value="employee.JsonplaceholderTests" />
+      <option name="METHOD_NAME" value="postJsonPlaceholderRequestDefaultValues" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="JsonplaceholderTests.postJsonplacehoderRequest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="JsonplaceholderTests.postJsonPlaceholderRequestValues" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="EmployeeService" />
       <extension name="coverage">
         <pattern>
@@ -123,7 +134,7 @@
       </extension>
       <option name="PACKAGE_NAME" value="employee" />
       <option name="MAIN_CLASS_NAME" value="employee.JsonplaceholderTests" />
-      <option name="METHOD_NAME" value="postJsonplacehoderRequest" />
+      <option name="METHOD_NAME" value="postJsonPlaceholderRequestValues" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -147,11 +158,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.JsonplaceholderTests" />
+        <item itemvalue="JUnit.JsonplaceholderTests.postJsonPlaceholderRequestValues" />
+        <item itemvalue="JUnit.JsonplaceholderTests.postJsonPlaceholderRequestDefaultValues" />
         <item itemvalue="JUnit.JsonplaceholderTests.postJsonplaceholderRequestDefaultValues" />
-        <item itemvalue="JUnit.JsonplaceholderTests.postJsonplacehoderRequest" />
         <item itemvalue="JUnit.EmployeeTests.postEmployeeRequestDefaultValues" />
-        <item itemvalue="JUnit.EmployeeTests" />
-        <item itemvalue="JUnit.JsonplaceholderTests.postEmployeeRequest" />
       </list>
     </recent_temporary>
   </component>

@@ -7,5 +7,5 @@ public class Configuration {
 
     public static final String JSONPLACEHOLDER_BASE_URL = "https://jsonplaceholder.typicode.com";
 
-    public static final  String JSONPLACEHOLDER_POST = JSONPLACEHOLDER_BASE_URL + "/posts/";
+    public static final  String JSONPLACEHOLDER_POST = JSONPLACEHOLDER_BASE_URL + "/posts";
 }

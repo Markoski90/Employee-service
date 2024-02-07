@@ -1,13 +1,13 @@
 package data;
 
 
-import models.request.JsonplaceholderRequestModelPOST;
+import models.request.JsonplaceholderModelPOSTRequest;
 
 public class JsonplaceholderDataFactory {
 
-        private JsonplaceholderRequestModelPOST request;
+        private JsonplaceholderModelPOSTRequest request;
 
-        public  JsonplaceholderDataFactory(JsonplaceholderRequestModelPOST requestBody){
+        public  JsonplaceholderDataFactory(JsonplaceholderModelPOSTRequest requestBody){
             request = requestBody;
         }
 
@@ -21,7 +21,7 @@ public class JsonplaceholderDataFactory {
         }
 
 
-        public JsonplaceholderRequestModelPOST createRequest(){
+        public JsonplaceholderModelPOSTRequest createRequest(){
             return request;
         }
 

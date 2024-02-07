@@ -6,11 +6,14 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+
 @Data
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class JsonplaceholderRequestModelPOST {
+public class JsonplaceholderModelPOSTRequest {
     String title;
     String body;
+
+
 }
