@@ -7,23 +7,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2979c769-a3af-4d61-849a-00c75b753945" name="Changes" comment="commit -m &quot;employee service POST request test&quot;">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/client/EmployeeClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client/EmployeeClient.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/client/JsonplaceholderClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client/JsonplaceholderClient.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/data/EmployeeDataFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/data/EmployeeDataFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/data/JsonplaceholderDataFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/data/JsonplaceholderDataFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/models/request/EmployeeRequestModelPOST.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/models/request/EmployeeRequestModelPOSTPUT.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/models/request/JsonplaceholderModelPOSTRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/models/request/JsonplaceholderRequestModelPOSTPUT.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/models/response/EmployeeResponseModelPOST.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/models/response/EmployeeResponseModelPOSTPUT.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/models/response/JsonplaceholderResponseModelPOST.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/models/response/JsonplaceholderResponseModelPOSTPUT.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/mother/EmployeeMother.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/mother/EmployeeMother.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/mother/JsonplaceholderMother.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/mother/JsonplaceholderMother.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/util/Configuration.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/util/Configuration.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/employee/EmployeeTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/employee/EmployeeTests.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/employee/JsonplaceholderTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/employee/JsonplaceholderTests.java" afterDir="false" />
-    </list>
+    <list default="true" id="2979c769-a3af-4d61-849a-00c75b753945" name="Changes" comment="commit -m &quot;employee service POST request test&quot;" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />

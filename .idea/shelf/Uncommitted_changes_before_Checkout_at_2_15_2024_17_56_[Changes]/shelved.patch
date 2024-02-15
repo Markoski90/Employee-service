@@ -1,0 +1,167 @@
+Index: src/test/java/employee/JsonplaceholderTests.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package employee;\r\n\r\nimport client.JsonplaceholderClient;\r\nimport data.JsonplaceholderDataFactory;\r\nimport io.restassured.response.Response;\r\nimport models.request.JsonplaceholderRequestModelPOSTPUT;\r\nimport models.response.*;\r\nimport org.junit.Test;\r\n\r\n\r\nimport java.util.List;\r\n\r\nimport static mother.JsonplaceholderMother.createBodyForJsonplaceholderPOST;\r\nimport static org.junit.Assert.assertEquals;\r\nimport static org.junit.Assert.assertFalse;\r\n\r\n\r\n\r\npublic class JsonplaceholderTests {\r\n    String titleId1 =\"sunt aut facere repellat provident occaecati excepturi optio reprehenderit\";\r\n    String bodyId1 =\"quia et suscipit\\nsuscipit recusandae consequuntur expedita et cum\\nreprehenderit molestiae ut ut quas totam\\nnostrum rerum est autem sunt rem eveniet architecto\";\r\n\r\n    @Test\r\n    public void getJsonplaceholderAllPosts(){\r\n\r\n        Response getResponse = new JsonplaceholderClient()\r\n                .getAllPosts();\r\n        List <JsonplacehodlerResponseModelGETAll> JsonplaceholderResponse = getResponse\r\n                .body()\r\n                .jsonPath()\r\n                .getList(\"\",JsonplacehodlerResponseModelGETAll.class);\r\n\r\n        assertEquals(200,getResponse.statusCode());\r\n        assertFalse(JsonplaceholderResponse.isEmpty());\r\n\r\n\r\n    }\r\n\r\n    @Test\r\n    public void getPostById(){\r\n\r\n        Response getResponse = new JsonplaceholderClient()\r\n                .getPostById(\"1\");\r\n\r\n        JsonplacehodlerResponseModelGETAll postsResponse = getResponse.body().as(JsonplacehodlerResponseModelGETAll.class);\r\n\r\n        assertEquals(200, getResponse.statusCode());\r\n        assertEquals(titleId1, postsResponse.getTitle());\r\n        assertEquals(bodyId1, postsResponse.getBody());\r\n\r\n    }\r\n\r\n\r\n\r\n\r\n\r\n    @Test\r\n    public void postJsonPlaceholderRequestDefaultValuesTest(){\r\n\r\n        JsonplaceholderRequestModelPOSTPUT requestBody = new JsonplaceholderDataFactory(createBodyForJsonplaceholderPOST())\r\n                .createRequest();\r\n\r\n\r\n        Response postResponse = new JsonplaceholderClient()\r\n\r\n                .postPosts(requestBody);\r\n\r\n        JsonplaceholderResponseModelPOSTPUT JsonplaceholderResponse = postResponse.body() .as (JsonplaceholderResponseModelPOSTPUT.class);\r\n\r\n\r\n        assertEquals(201,postResponse.statusCode());\r\n        assertEquals(\"Default title\",JsonplaceholderResponse.getTitle());\r\n        assertEquals(\"Default body\",JsonplaceholderResponse.getBody());\r\n\r\n    }\r\n\r\n    @Test\r\n    public void postJsonPlaceholderRequestValues(){\r\n\r\n        JsonplaceholderRequestModelPOSTPUT requestBody = new JsonplaceholderDataFactory(createBodyForJsonplaceholderPOST())\r\n                .setTitle(\"Makedonija osvoi svetsko prvenstvo vo fudbal\")\r\n                .setBody(\"Noviot svetski prvak Makedonija go osvoi svetskoto prvenstvo vo fudbal odrzano vo Madrid\")\r\n                .createRequest();\r\n\r\n\r\n        Response postResponse = new JsonplaceholderClient()\r\n                .postPosts(requestBody);\r\n\r\n        JsonplaceholderResponseModelPOSTPUT JsonplaceholderResponse = postResponse.body() .as (JsonplaceholderResponseModelPOSTPUT.class);\r\n\r\n\r\n        assertEquals(201,postResponse.statusCode());\r\n        assertEquals(\"Makedonija osvoi svetsko prvenstvo vo fudbal\",JsonplaceholderResponse.getTitle());\r\n        assertEquals(\"Noviot svetski prvak Makedonija go osvoi svetskoto prvenstvo vo fudbal odrzano vo Madrid\",JsonplaceholderResponse.getBody());\r\n    }\r\n\r\n    @Test\r\n    public void updateJsonplaceholderTest(){\r\n\r\n        JsonplaceholderRequestModelPOSTPUT requestBody = new JsonplaceholderDataFactory(createBodyForJsonplaceholderPOST())\r\n                .setTitle(\"My Title\")\r\n                .setBody(\"This is body\")\r\n                .createRequest();\r\n\r\n        Response postResponse = new JsonplaceholderClient()\r\n                .updatePosts(requestBody,\"2\");\r\n\r\n        JsonplaceholderResponseModelPOSTPUT JsonplaceholderResponse = postResponse.body() .as (JsonplaceholderResponseModelPOSTPUT.class);\r\n\r\n\r\n        assertEquals(200,postResponse.statusCode());\r\n        assertEquals(\"My Title\",JsonplaceholderResponse.getTitle());\r\n        assertEquals(\"This is body\",JsonplaceholderResponse.getBody());\r\n\r\n\r\n    }\r\n    @Test\r\n    public void deleteJsonplaceholderTest(){\r\n\r\n\r\n        Response deleteResponse = new JsonplaceholderClient()\r\n                .deletePost(\"5\");\r\n\r\n        JsonplaceholderResponseDELETE JsonplaceholderResponse = deleteResponse.body() .as (JsonplaceholderResponseDELETE.class);\r\n\r\n        assertEquals(200,deleteResponse.statusCode());\r\n\r\n\r\n    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/test/java/employee/JsonplaceholderTests.java b/src/test/java/employee/JsonplaceholderTests.java
+--- a/src/test/java/employee/JsonplaceholderTests.java	
++++ b/src/test/java/employee/JsonplaceholderTests.java	
+@@ -121,10 +121,6 @@
+         Response deleteResponse = new JsonplaceholderClient()
+                 .deletePost("5");
+ 
+-        JsonplaceholderResponseDELETE JsonplaceholderResponse = deleteResponse.body() .as (JsonplaceholderResponseDELETE.class);
+-
+         assertEquals(200,deleteResponse.statusCode());
+-
+-
+     }
+ }
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"AnalysisUIOptions\">\r\n    <option name=\"SCOPE_TYPE\" value=\"3\" />\r\n  </component>\r\n  <component name=\"AutoImportSettings\">\r\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\r\n  </component>\r\n  <component name=\"ChangeListManager\">\r\n    <list default=\"true\" id=\"2979c769-a3af-4d61-849a-00c75b753945\" name=\"Changes\" comment=\"commit -m &quot;employee service POST request test&quot;\">\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/pom.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/pom.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/client/EmployeeClient.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/client/EmployeeClient.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/client/JsonplaceholderClient.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/client/JsonplaceholderClient.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/data/EmployeeDataFactory.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/data/EmployeeDataFactory.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/data/JsonplaceholderDataFactory.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/data/JsonplaceholderDataFactory.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/models/request/EmployeeRequestModelPOST.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/models/request/EmployeeRequestModelPOSTPUT.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/models/request/JsonplaceholderModelPOSTRequest.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/models/request/JsonplaceholderRequestModelPOSTPUT.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/models/response/EmployeeResponseModelPOST.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/models/response/EmployeeResponseModelPOSTPUT.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/models/response/JsonplaceholderResponseModelPOST.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/models/response/JsonplaceholderResponseModelPOSTPUT.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/mother/EmployeeMother.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/mother/EmployeeMother.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/mother/JsonplaceholderMother.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/mother/JsonplaceholderMother.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/util/Configuration.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/util/Configuration.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/test/java/employee/EmployeeTests.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/test/java/employee/EmployeeTests.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/test/java/employee/JsonplaceholderTests.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/test/java/employee/JsonplaceholderTests.java\" afterDir=\"false\" />\r\n    </list>\r\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\r\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\r\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\r\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\r\n  </component>\r\n  <component name=\"FileTemplateManagerImpl\">\r\n    <option name=\"RECENT_TEMPLATES\">\r\n      <list>\r\n        <option value=\"Class\" />\r\n      </list>\r\n    </option>\r\n  </component>\r\n  <component name=\"Git.Settings\">\r\n    <option name=\"RECENT_BRANCH_BY_REPOSITORY\">\r\n      <map>\r\n        <entry key=\"$PROJECT_DIR$\" value=\"NewBranch\" />\r\n      </map>\r\n    </option>\r\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\r\n  </component>\r\n  <component name=\"GitHubPullRequestSearchHistory\">{\r\n  &quot;history&quot;: [\r\n    {\r\n      &quot;state&quot;: &quot;OPEN&quot;,\r\n      &quot;reviewState&quot;: &quot;AWAITING_REVIEW&quot;\r\n    }\r\n  ],\r\n  &quot;lastFilter&quot;: {\r\n    &quot;state&quot;: &quot;OPEN&quot;,\r\n    &quot;reviewState&quot;: &quot;AWAITING_REVIEW&quot;\r\n  }\r\n}</component>\r\n  <component name=\"GithubPullRequestsUISettings\">\r\n    <option name=\"selectedUrlAndAccountId\">\r\n      <UrlAndAccount>\r\n        <option name=\"accountId\" value=\"56c84902-b653-4fd2-b528-fd16d1947ea4\" />\r\n        <option name=\"url\" value=\"git@github.com:Markoski90/Employee-service.git\" />\r\n      </UrlAndAccount>\r\n    </option>\r\n  </component>\r\n  <component name=\"ProjectColorInfo\">{\r\n  &quot;customColor&quot;: &quot;&quot;,\r\n  &quot;associatedIndex&quot;: 6\r\n}</component>\r\n  <component name=\"ProjectId\" id=\"2burBHYGUD0wnNSt0YzvD0gIpNA\" />\r\n  <component name=\"ProjectLevelVcsManager\" settingsEditedManually=\"true\" />\r\n  <component name=\"ProjectViewState\">\r\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\r\n    <option name=\"showLibraryContents\" value=\"true\" />\r\n  </component>\r\n  <component name=\"PropertiesComponent\">{\r\n  &quot;keyToString&quot;: {\r\n    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,\r\n    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,\r\n    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,\r\n    &quot;git-widget-placeholder&quot;: &quot;Get,Update,Delete&quot;,\r\n    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settings.project.maven.repository.indices&quot;\r\n  }\r\n}</component>\r\n  <component name=\"RunManager\" selected=\"JUnit.EmployeeTests\">\r\n    <configuration name=\"EmployeeTests\" type=\"JUnit\" factoryName=\"JUnit\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <module name=\"EmployeeService\" />\r\n      <extension name=\"coverage\">\r\n        <pattern>\r\n          <option name=\"PATTERN\" value=\"employee.*\" />\r\n          <option name=\"ENABLED\" value=\"true\" />\r\n        </pattern>\r\n      </extension>\r\n      <option name=\"PACKAGE_NAME\" value=\"employee\" />\r\n      <option name=\"MAIN_CLASS_NAME\" value=\"employee.EmployeeTests\" />\r\n      <option name=\"TEST_OBJECT\" value=\"class\" />\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <configuration name=\"JsonplaceholderTests\" type=\"JUnit\" factoryName=\"JUnit\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <module name=\"EmployeeService\" />\r\n      <extension name=\"coverage\">\r\n        <pattern>\r\n          <option name=\"PATTERN\" value=\"employee.*\" />\r\n          <option name=\"ENABLED\" value=\"true\" />\r\n        </pattern>\r\n      </extension>\r\n      <option name=\"PACKAGE_NAME\" value=\"employee\" />\r\n      <option name=\"MAIN_CLASS_NAME\" value=\"employee.JsonplaceholderTests\" />\r\n      <option name=\"TEST_OBJECT\" value=\"class\" />\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <configuration name=\"JsonplaceholderTests.getJsonplaceholderAllPosts\" type=\"JUnit\" factoryName=\"JUnit\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <module name=\"EmployeeService\" />\r\n      <extension name=\"coverage\">\r\n        <pattern>\r\n          <option name=\"PATTERN\" value=\"employee.*\" />\r\n          <option name=\"ENABLED\" value=\"true\" />\r\n        </pattern>\r\n      </extension>\r\n      <option name=\"PACKAGE_NAME\" value=\"employee\" />\r\n      <option name=\"MAIN_CLASS_NAME\" value=\"employee.JsonplaceholderTests\" />\r\n      <option name=\"METHOD_NAME\" value=\"getJsonplaceholderAllPosts\" />\r\n      <option name=\"TEST_OBJECT\" value=\"method\" />\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <configuration name=\"JsonplaceholderTests.getPostById\" type=\"JUnit\" factoryName=\"JUnit\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <module name=\"EmployeeService\" />\r\n      <extension name=\"coverage\">\r\n        <pattern>\r\n          <option name=\"PATTERN\" value=\"employee.*\" />\r\n          <option name=\"ENABLED\" value=\"true\" />\r\n        </pattern>\r\n      </extension>\r\n      <option name=\"PACKAGE_NAME\" value=\"employee\" />\r\n      <option name=\"MAIN_CLASS_NAME\" value=\"employee.JsonplaceholderTests\" />\r\n      <option name=\"METHOD_NAME\" value=\"getPostById\" />\r\n      <option name=\"TEST_OBJECT\" value=\"method\" />\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <configuration name=\"JsonplaceholderTests.updateJsonplaceholderTest\" type=\"JUnit\" factoryName=\"JUnit\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <module name=\"EmployeeService\" />\r\n      <extension name=\"coverage\">\r\n        <pattern>\r\n          <option name=\"PATTERN\" value=\"employee.*\" />\r\n          <option name=\"ENABLED\" value=\"true\" />\r\n        </pattern>\r\n      </extension>\r\n      <option name=\"PACKAGE_NAME\" value=\"employee\" />\r\n      <option name=\"MAIN_CLASS_NAME\" value=\"employee.JsonplaceholderTests\" />\r\n      <option name=\"METHOD_NAME\" value=\"updateJsonplaceholderTest\" />\r\n      <option name=\"TEST_OBJECT\" value=\"method\" />\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <recent_temporary>\r\n      <list>\r\n        <item itemvalue=\"JUnit.EmployeeTests\" />\r\n        <item itemvalue=\"JUnit.JsonplaceholderTests\" />\r\n        <item itemvalue=\"JUnit.JsonplaceholderTests.getPostById\" />\r\n        <item itemvalue=\"JUnit.JsonplaceholderTests.getJsonplaceholderAllPosts\" />\r\n        <item itemvalue=\"JUnit.JsonplaceholderTests.updateJsonplaceholderTest\" />\r\n      </list>\r\n    </recent_temporary>\r\n  </component>\r\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\r\n  <component name=\"TaskManager\">\r\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\r\n      <changelist id=\"2979c769-a3af-4d61-849a-00c75b753945\" name=\"Changes\" comment=\"\" />\r\n      <created>1707075671367</created>\r\n      <option name=\"number\" value=\"Default\" />\r\n      <option name=\"presentableId\" value=\"Default\" />\r\n      <updated>1707075671367</updated>\r\n    </task>\r\n    <servers />\r\n  </component>\r\n  <component name=\"Vcs.Log.Tabs.Properties\">\r\n    <option name=\"TAB_STATES\">\r\n      <map>\r\n        <entry key=\"MAIN\">\r\n          <value>\r\n            <State />\r\n          </value>\r\n        </entry>\r\n      </map>\r\n    </option>\r\n  </component>\r\n  <component name=\"VcsManagerConfiguration\">\r\n    <MESSAGE value=\"commit -m &quot;employee service POST request test&quot;\" />\r\n    <option name=\"LAST_COMMIT_MESSAGE\" value=\"commit -m &quot;employee service POST request test&quot;\" />\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	
++++ b/.idea/workspace.xml	
+@@ -10,18 +10,6 @@
+     <list default="true" id="2979c769-a3af-4d61-849a-00c75b753945" name="Changes" comment="commit -m &quot;employee service POST request test&quot;">
+       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/client/EmployeeClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client/EmployeeClient.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/client/JsonplaceholderClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client/JsonplaceholderClient.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/data/EmployeeDataFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/data/EmployeeDataFactory.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/data/JsonplaceholderDataFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/data/JsonplaceholderDataFactory.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/models/request/EmployeeRequestModelPOST.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/models/request/EmployeeRequestModelPOSTPUT.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/models/request/JsonplaceholderModelPOSTRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/models/request/JsonplaceholderRequestModelPOSTPUT.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/models/response/EmployeeResponseModelPOST.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/models/response/EmployeeResponseModelPOSTPUT.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/models/response/JsonplaceholderResponseModelPOST.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/models/response/JsonplaceholderResponseModelPOSTPUT.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/mother/EmployeeMother.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/mother/EmployeeMother.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/mother/JsonplaceholderMother.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/mother/JsonplaceholderMother.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/util/Configuration.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/util/Configuration.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/test/java/employee/EmployeeTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/employee/EmployeeTests.java" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/src/test/java/employee/JsonplaceholderTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/employee/JsonplaceholderTests.java" afterDir="false" />
+     </list>
+     <option name="SHOW_DIALOG" value="false" />
+@@ -83,7 +71,7 @@
+     &quot;settings.editor.selected.configurable&quot;: &quot;reference.settings.project.maven.repository.indices&quot;
+   }
+ }</component>
+-  <component name="RunManager" selected="JUnit.EmployeeTests">
++  <component name="RunManager" selected="JUnit.JsonplaceholderTests.deleteJsonplaceholderTest">
+     <configuration name="EmployeeTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+       <module name="EmployeeService" />
+       <extension name="coverage">
+@@ -114,7 +102,7 @@
+         <option name="Make" enabled="true" />
+       </method>
+     </configuration>
+-    <configuration name="JsonplaceholderTests.getJsonplaceholderAllPosts" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
++    <configuration name="JsonplaceholderTests.deleteJsonplaceholderTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+       <module name="EmployeeService" />
+       <extension name="coverage">
+         <pattern>
+@@ -124,13 +112,13 @@
+       </extension>
+       <option name="PACKAGE_NAME" value="employee" />
+       <option name="MAIN_CLASS_NAME" value="employee.JsonplaceholderTests" />
+-      <option name="METHOD_NAME" value="getJsonplaceholderAllPosts" />
++      <option name="METHOD_NAME" value="deleteJsonplaceholderTest" />
+       <option name="TEST_OBJECT" value="method" />
+       <method v="2">
+         <option name="Make" enabled="true" />
+       </method>
+     </configuration>
+-    <configuration name="JsonplaceholderTests.getPostById" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
++    <configuration name="JsonplaceholderTests.getJsonplaceholderAllPosts" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+       <module name="EmployeeService" />
+       <extension name="coverage">
+         <pattern>
+@@ -140,13 +128,13 @@
+       </extension>
+       <option name="PACKAGE_NAME" value="employee" />
+       <option name="MAIN_CLASS_NAME" value="employee.JsonplaceholderTests" />
+-      <option name="METHOD_NAME" value="getPostById" />
++      <option name="METHOD_NAME" value="getJsonplaceholderAllPosts" />
+       <option name="TEST_OBJECT" value="method" />
+       <method v="2">
+         <option name="Make" enabled="true" />
+       </method>
+     </configuration>
+-    <configuration name="JsonplaceholderTests.updateJsonplaceholderTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
++    <configuration name="JsonplaceholderTests.getPostById" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+       <module name="EmployeeService" />
+       <extension name="coverage">
+         <pattern>
+@@ -156,7 +144,7 @@
+       </extension>
+       <option name="PACKAGE_NAME" value="employee" />
+       <option name="MAIN_CLASS_NAME" value="employee.JsonplaceholderTests" />
+-      <option name="METHOD_NAME" value="updateJsonplaceholderTest" />
++      <option name="METHOD_NAME" value="getPostById" />
+       <option name="TEST_OBJECT" value="method" />
+       <method v="2">
+         <option name="Make" enabled="true" />
+@@ -164,11 +152,11 @@
+     </configuration>
+     <recent_temporary>
+       <list>
++        <item itemvalue="JUnit.JsonplaceholderTests.deleteJsonplaceholderTest" />
+         <item itemvalue="JUnit.EmployeeTests" />
+         <item itemvalue="JUnit.JsonplaceholderTests" />
+         <item itemvalue="JUnit.JsonplaceholderTests.getPostById" />
+         <item itemvalue="JUnit.JsonplaceholderTests.getJsonplaceholderAllPosts" />
+-        <item itemvalue="JUnit.JsonplaceholderTests.updateJsonplaceholderTest" />
+       </list>
+     </recent_temporary>
+   </component>
+Index: pom.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><project xmlns=\"http://maven.apache.org/POM/4.0.0\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\r\n  xsi:schemaLocation=\"http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd\">\r\n  <modelVersion>4.0.0</modelVersion>\r\n  <groupId>org.example</groupId>\r\n  <artifactId>EmployeeService</artifactId>\r\n  <version>1.0-SNAPSHOT</version>\r\n  <name>Archetype - EmployeeService</name>\r\n  <url>http://maven.apache.org</url>\r\n  <build>\r\n    <plugins>\r\n      <plugin>\r\n        <groupId>org.apache.maven.plugins</groupId>\r\n        <artifactId>maven-compiler-plugin</artifactId>\r\n        <version>3.12.1</version>\r\n        <configuration>\r\n          <source>21</source>\r\n          <target>21</target>\r\n        </configuration>\r\n      </plugin>\r\n    </plugins>\r\n  </build>\r\n  <dependencies>\r\n    <dependency>\r\n      <groupId>junit</groupId>\r\n      <artifactId>junit</artifactId>\r\n      <version>4.13.2</version>\r\n      <scope>test</scope>\r\n    </dependency>\r\n    <dependency>\r\n      <groupId>io.rest-assured</groupId>\r\n      <artifactId>rest-assured</artifactId>\r\n      <version>5.3.2</version>\r\n      <scope>compile</scope>\r\n    </dependency>\r\n    <dependency>\r\n      <groupId>org.projectlombok</groupId>\r\n      <artifactId>lombok</artifactId>\r\n      <version>1.18.30</version>\r\n      <scope>provided</scope>\r\n    </dependency>\r\n    <dependency>\r\n      <groupId>com.fasterxml.jackson.core</groupId>\r\n      <artifactId>jackson-databind</artifactId>\r\n      <version>2.15.2</version>\r\n    </dependency>\r\n      <dependency>\r\n          <groupId>org.junit.jupiter</groupId>\r\n          <artifactId>junit-jupiter</artifactId>\r\n          <version>RELEASE</version>\r\n          <scope>test</scope>\r\n      </dependency>\r\n\r\n    <dependency>\r\n      <groupId>org.testng</groupId>\r\n      <artifactId>testng</artifactId>\r\n      <version>6.8.7</version>\r\n\r\n    </dependency>\r\n\r\n  </dependencies>\r\n</project>\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/pom.xml b/pom.xml
+--- a/pom.xml	
++++ b/pom.xml	
+@@ -57,5 +57,11 @@
+ 
+     </dependency>
+ 
++    <dependency>
++      <groupId>org.seleniumhq.selenium</groupId>
++      <artifactId>selenium-java</artifactId>
++      <version>4.16.1</version>
++    </dependency>
++
+   </dependencies>
+ </project>
+Index: src/main/java/models/response/JsonplacehodlerResponseModelGETAll.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package models.response;\r\n\r\n\r\nimport lombok.AllArgsConstructor;\r\nimport lombok.Builder;\r\nimport lombok.Data;\r\nimport lombok.NoArgsConstructor;\r\n\r\n@Data\r\n@Builder\r\n@NoArgsConstructor\r\n@AllArgsConstructor\r\n\r\npublic class JsonplacehodlerResponseModelGETAll {\r\n    int id;\r\n    String title;\r\n    String body;\r\n    int userId;\r\n}\r\n
+===================================================================
+diff --git a/src/main/java/models/response/JsonplacehodlerResponseModelGETAll.java b/src/main/java/models/response/JsonplacehodlerResponseModelGETAll.java
+--- a/src/main/java/models/response/JsonplacehodlerResponseModelGETAll.java	
++++ b/src/main/java/models/response/JsonplacehodlerResponseModelGETAll.java	
+@@ -1,6 +1,5 @@
+ package models.response;
+ 
+-
+ import lombok.AllArgsConstructor;
+ import lombok.Builder;
+ import lombok.Data;
+@@ -10,7 +9,6 @@
+ @Builder
+ @NoArgsConstructor
+ @AllArgsConstructor
+-
+ public class JsonplacehodlerResponseModelGETAll {
+     int id;
+     String title;
