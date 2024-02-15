@@ -1,11 +1,11 @@
 package mother;
 
 
-import models.request.JsonplaceholderModelPOSTRequest;
+import models.request.JsonplaceholderRequestModelPOSTPUT;
 
 public class JsonplaceholderMother {
-    public static JsonplaceholderModelPOSTRequest createBodyForJsonplaceholderPOST(){
-        return JsonplaceholderModelPOSTRequest.builder()
+    public static JsonplaceholderRequestModelPOSTPUT createBodyForJsonplaceholderPOST(){
+        return JsonplaceholderRequestModelPOSTPUT.builder()
                 .title("Default title")
                 .body("Default body")
                 .build();

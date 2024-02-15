@@ -10,7 +10,7 @@ import lombok.NoArgsConstructor;
     @Builder
     @NoArgsConstructor
     @AllArgsConstructor
-    public class JsonplaceholderResponseModelPOST {
+    public class JsonplaceholderResponseModelPOSTPUT {
         String title;
         String body;
         int id;
